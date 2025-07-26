@@ -1,3 +1,9 @@
+<script>
+    import { userNome as inome } from '$lib/stores/stores'
+    import { userEmail as iemail } from '$lib/stores/stores'
+    import { userSenha as isenha } from '$lib/stores/stores'
+</script>
+
 <div class="container">
     <div id="campo">
         <a href="./">
@@ -9,9 +15,9 @@
         </div>
         <div class="container" id="container-conta">
             <h2>Conta criada com sucesso!</h2>
-            <p>nome de usuário : ...</p>
-            <p>email : ...</p>
-            <p>senha : ...</p>
+            <p>nome de usuário : {$inome}</p>
+            <p>email : {$iemail}</p>
+            <p>senha : {$isenha}</p>
         </div>
     </div>
 </div>
