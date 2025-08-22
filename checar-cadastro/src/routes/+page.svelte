@@ -1,7 +1,8 @@
 <div class="container">
     <div id="campo">
-        <div class="container">
-            <img src="carta_inteira.webp" alt="" id="carta" />
+        <div class="container_2">
+            <img src="gamecom.png" alt="" id="logo" />
+            <p style="text-align:center">Este aqui é um simulador de criação de contas. O Gamecom é uma rede social fictícia da comunidade gamer em que os usuários compartilham suas experiências e fazem interações entre si sobre seus jogos. Você pode iniciar a criação de sua conta fictícia clicando no botão abaixo : </p>
         </div>
         <div class="container">
             <a href="cadastro">
@@ -14,16 +15,28 @@
 </div>
 
 <style>
+
     :global(:root) {
         background-image: radial-gradient(#ccc 1px, transparent 1px);
         background-size: 10px 10px;
         font-family: monospace;
     }
 
+
+    
+    
+
     .container {
         display: flex;
         justify-content: center;
         padding: 4em;
+    }
+
+    .container_2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 4em;
     }
 
     #campo {
@@ -36,15 +49,14 @@
         border: 1px black solid;
     }
 
-    #carta {
-        width: auto;
-        height: 150px;
-        margin: 4em 0 0 0;
-        border: 1px black solid;
+    #logo {
+        width: 100%;
+        height: auto;
     }
 
     #iniciar {
         padding: 0.5em;
+        margin-top:3em;
         width: 200px;
         border-radius: 100px;
         background-color: #ffffff;

@@ -1,8 +1,10 @@
 <script lang="ts">
-    import { userNome , userEmail , userSenha } from '$lib/stores/stores';
-    import { userNome as inome } from '$lib/stores/stores'
-    import { userEmail as iemail } from '$lib/stores/stores'
-    import { userSenha as isenha } from '$lib/stores/stores'
+    import { userNome, userEmail, userSenha } from "$lib/stores/stores";
+    import { userNome as inome } from "$lib/stores/stores";
+    import { userEmail as iemail } from "$lib/stores/stores";
+    import { userSenha as isenha } from "$lib/stores/stores";
+
+    let imagem_avatar_valor: string = "Pedro.jpg";
 
     let username: string = "";
     let username_a: string = "";
@@ -83,7 +85,6 @@
             redirencionar = "finalizado";
         }
 
-
         inome.set(username);
         iemail.set(email);
         isenha.set(senha);
@@ -91,61 +92,78 @@
 </script>
 
 <div class="container">
+    <div id="campo_arte"></div>
     <div id="campo">
-        <div id="container_carta">
-            <img
-                src="carta_01.jpg"
-                class="cartas"
-                alt=""
-                style="opacity:{mostrar_c1}"
-            />
-            <img
-                src="carta_03.jpg"
-                class="cartas"
-                alt=""
-                style="opacity:{mostrar_c2}"
-            />
-            <img
-                src="carta_02.jpg"
-                class="cartas"
-                alt=""
-                style="opacity:{mostrar_c3}"
-            />
-            <img
-                src="carta_04.jpg"
-                class="cartas"
-                alt=""
-                style="opacity:{mostrar_c4}"
-            />
+        <img src="gamecom.png" alt="" id="gamecom_img" />
+        <h1>Bem vindo/a ao Gamecom!</h1>
+        <p>
+            O Gamecom é um lugar para você encontrar outras pessoas que gostam
+            de jogar, assim como você! Compartilhe suas histórias com a sua
+            comunidade gamer e comece criando sua conta aqui.
+        </p>
+        <div id="avatar_layout">
+            <div>
+                <img src={imagem_avatar_valor} id="avatar_img" alt="" />
+            </div>
+            <div style="padding-left:2em">
+                <h3>Avatar do perfil</h3>
+                <select name="" id="" bind:value={imagem_avatar_valor}>
+                    <option value="Pedro.jpg">Pedro</option>
+                    <option value="Maria.jpg">Maria</option>
+                    <option value="Joelma.jpg">Joelma</option>
+                    <option value="Matheus.jpg">Matheus</option>
+                </select>
+            </div>
         </div>
+
         <div class="container">
-            <table>
-                <caption>
-                    <label for="">Nome de usuário</label><br />
-                    <input type="text" bind:value={username} /><br />
+            <div id="tabela_de_inputs">
+                <div>
+                    <label for=""><h3>Nome de usuário</h3></label><br />
+                    <input
+                        type="text"
+                        class="inputs_full"
+                        bind:value={username}
+                    /><br />
                     <label class="avisos" for="">{username_a}</label>
-                </caption>
-                <caption>
-                    <label for="">Endereço Email</label><br />
-                    <input type="text" bind:value={email} /><br />
+                </div>
+                <div>
+                    <label for=""><h3>Endereço Email</h3></label><br />
+                    <input
+                        type="text"
+                        class="inputs_full"
+                        bind:value={email}
+                    /><br />
                     <label class="avisos" for="">{email_a}</label>
-                </caption>
-                <caption>
-                    <label for="">Senha</label><br />
-                    <input type="password" bind:value={senha} /><br />
-                    <label class="avisos" for="">{senha_a}</label>
-                </caption>
-                <caption>
-                    <label for="">Confirmar senha</label><br />
-                    <input type="password" bind:value={confirmar} /><br />
-                    <label class="avisos" for="">{confirmar_a}</label>
-                </caption>
-            </table>
+                </div>
+
+                <div id="bloco_senha">
+                    <div style="width: 100%; margin-right:3em;">
+                        <label for=""><h3>Senha</h3></label><br />
+                        <input
+                            type="password"
+                            class="input_senha"
+                            bind:value={senha}
+                        /><br />
+                        <label class="avisos" for="">{senha_a}</label>
+                    </div>
+                    <div style="width: 100%;">
+                        <label for=""><h3>Confirmar senha</h3></label><br />
+                        <input
+                            type="password"
+                            class="input_senha"
+                            bind:value={confirmar}
+                        /><br />
+                        <label class="avisos" for="">{confirmar_a}</label>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="container" id="container_botao">
+
+        <div id="container_botao">
             <a href={redirencionar}>
                 <button id="iniciar">
-                    <p  style="font-family: monospace;">criar conta</p>
+                    <p style="font-family: monospace;">criar conta</p>
                 </button>
             </a>
         </div>
@@ -157,69 +175,172 @@
         background-image: radial-gradient(#ccc 1px, transparent 1px);
         background-size: 10px 10px;
         font-family: monospace;
+        margin: 0;
+    }
+
+    /* para celulcares */
+
+    @media (min-width: 0px) {
+        #campo_arte {
+            background-image: URL("arte_lateral.png");
+            background-size: cover;
+            width: 0%;
+            min-height: 50em;
+            display: none;
+        }
+
+        #campo {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            padding: 0 5em;
+            min-height: 50em;
+            background-color: rgb(255, 241, 224);
+        }
+
+        h3 {
+        color: rgb(46, 46, 46);
+        margin: 3em 0 0 0;
+        font-size: 12px;
+    }
+    }
+
+    /* para computadores */
+
+    @media (min-width: 500px) {
+        #campo_arte {
+            background-image: URL("arte_lateral.png");
+            background-size: cover;
+            width: 50%;
+            min-height: 50em;
+            display: block;
+        }
+
+        #campo {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 50%;
+            padding: 0 8em;
+            min-height: 50em;
+            background-color: rgb(255, 241, 224);
+        }
+
+        h3 {
+        color: rgb(46, 46, 46);
+        margin: 3em 0 0 0;
+    }
     }
 
     .container {
         display: flex;
         justify-content: center;
-        padding: 0.5em;
+        padding: 0;
     }
 
-    #campo {
+    h3 {
+        color: rgb(46, 46, 46);
+        margin: 3em 0 0 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    #gamecom_img {
+        width: 150px;
+        height: auto;
+        margin: 4em 0;
+    }
+
+    #avatar_layout {
         display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 400px;
-
-        background-color: rgb(255, 241, 224);
-        border: 1px black solid;
+        margin: 2em 0;
     }
+
+    #avatar_img {
+        width: 100px;
+        height: auto;
+        border-radius: 100%;
+    }
+
+    select {
+        border: none;
+        background-color: #e1eaeb;
+        padding: 0.5em;
+        margin: 1em;
+        border-radius: 7px;
+        color: rgb(88, 88, 88);
+    }
+
+    input {
+        border: none;
+        background-color: #e1eaeb;
+        padding: 0.9em;
+        border-radius: 7px;
+        /* width: 100%; */
+        color: rgb(88, 88, 88);
+    }
+
+    .inputs_full {
+        width: 100%;
+    }
+
+    .input_senha {
+        width: 100%;
+    }
+
     .avisos {
         color: purple;
+        padding-bottom: 3em;
     }
+
     #iniciar {
         padding: 0.5em;
-        width: 200px;
-        border-radius: 100px;
+        width: 20em;
         border: 1px solid black;
         background-color: #ffffff;
+        margin: auto;
     }
 
     :hover#iniciar {
-        color: purple;
-        border: 1px solid purple;
+        background-color: #f3d48036;
     }
 
-    .cartas {
-        width: 100px;
-        height: auto;
-    }
-
-    #container_carta {
+    #bloco_senha {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 4em;
+        width: 100%;
     }
 
+    #tabela_de_inputs {
+        width: 100%;
+    }
 
+    #container_botao {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 5em 0;
+        width: 100%;
+    }
+
+    /* 
     table {
         width: 100%;
-        margin-left: 4em;
+    }
+
+    td{
+        width: 50px;
     }
 
     #container_botao {
         margin: 2em;
+        width: 100%;
     }
 
-    caption {
+    caption , tbody {
         text-align: start;
         margin: 1em;
-    }
-
-    input {
-        width: 77%;
-        height: 1.5em;
-        border: 1px solid black;
-    }
+    } */
 </style>
