@@ -5,6 +5,7 @@
     import { userSenha as isenha } from "$lib/stores/stores";
 
     let imagem_avatar_valor: string = "Pedro.jpg";
+    let arteLateral:string = 'arte_lateral.png'
 
     let username: string = "";
     let username_a: string = "";
@@ -92,7 +93,7 @@
 </script>
 
 <div class="container">
-    <div id="campo_arte"></div>
+    <div id="campo_arte" style="background-image: url({arteLateral});"></div>
     <div id="campo">
         <img src="gamecom.png" alt="" id="gamecom_img" />
         <h1>Bem vindo/a ao Gamecom!</h1>
@@ -236,7 +237,6 @@
     }
 
     #campo_arte {
-        background-image: url("arte_lateral.png");
         background-size: cover;
     }
 
