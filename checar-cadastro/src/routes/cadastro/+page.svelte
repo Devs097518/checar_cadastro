@@ -182,8 +182,6 @@
 
     @media (min-width: 0px) {
         #campo_arte {
-            background-image: url("arte-lateral.png");
-            background-size: cover;
             width: 0%;
             min-height: 50em;
             display: none;
@@ -200,18 +198,16 @@
         }
 
         h3 {
-        color: rgb(46, 46, 46);
-        margin: 3em 0 0 0;
-        font-size: 12px;
-    }
+            color: rgb(46, 46, 46);
+            margin: 3em 0 0 0;
+            font-size: 12px;
+        }
     }
 
     /* para computadores */
 
     @media (min-width: 500px) {
         #campo_arte {
-            background-image: url("arte-lateral.png");
-            background-size: cover;
             width: 50%;
             min-height: 50em;
             display: block;
@@ -228,15 +224,20 @@
         }
 
         h3 {
-        color: rgb(46, 46, 46);
-        margin: 3em 0 0 0;
-    }
+            color: rgb(46, 46, 46);
+            margin: 3em 0 0 0;
+        }
     }
 
     .container {
         display: flex;
         justify-content: center;
         padding: 0;
+    }
+
+    #campo_arte {
+        background-image: url("arte_lateral.png");
+        background-size: cover;
     }
 
     h3 {
