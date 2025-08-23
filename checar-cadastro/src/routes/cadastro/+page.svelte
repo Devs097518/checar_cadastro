@@ -182,7 +182,7 @@
 
     @media (min-width: 0px) {
         #campo_arte {
-            background-image: url("arte_lateral.png");
+            background-image: url("arte-lateral.png");
             background-size: cover;
             width: 0%;
             min-height: 50em;
@@ -210,7 +210,7 @@
 
     @media (min-width: 500px) {
         #campo_arte {
-            background-image: url("arte_lateral.png");
+            background-image: url("arte-lateral.png");
             background-size: cover;
             width: 50%;
             min-height: 50em;
